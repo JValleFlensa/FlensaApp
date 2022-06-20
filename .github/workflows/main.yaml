@@ -14,7 +14,7 @@ jobs:
       
       - name: Andorid
         run: |
-          cd FlensaApp
           nuget restore FlensaApp.sln
+          cd FlensaApp
           cd Flensa.Android
           msbuild FlensaApp.Android.csproj /verbosity:normal /t:PackageForAndroid /p:Configuration=Debug
