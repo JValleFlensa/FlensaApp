@@ -13,6 +13,7 @@ namespace FlensaApp
         public MainPage()
         {
             InitializeComponent();
+            // This is a Comment
         }
     }
 }
