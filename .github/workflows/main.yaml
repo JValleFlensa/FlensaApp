@@ -9,12 +9,16 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2.4.2
         
-      - name: Show Current Directory
-        run: ls
+      - name: Setup .NET Core SDK 5.0.x
+        uses: actions/setup-dotnet@v2
+        with:
+          dotnet-version: '5.0.x'
+     
+      - name: Install Dependencies
+        run: nuget restore FlensaApp.sln
       
-      - name: Andorid
+      - name: Build
         run: |
-          nuget restore FlensaApp.sln
           cd FlensaApp
           cd Flensa.Android
           msbuild FlensaApp.Android.csproj /verbosity:normal /t:PackageForAndroid /p:Configuration=Debug
